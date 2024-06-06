@@ -15,16 +15,16 @@ else:
     server_name = "cariad"
 
 curr_folder = os.path.dirname(__file__)
-if not os.path.isdir(curr_folder + "\\Reports"):
-    os.mkdir(curr_folder + "\\Reports")
+if not os.path.isdir(curr_folder + "/Reports"):
+    os.mkdir(curr_folder + "/Reports")
 
-if not os.path.isdir(curr_folder + "\\Artifacts"):
-    os.mkdir(curr_folder + "\\Artifacts")
+if not os.path.isdir(curr_folder + "/Artifacts"):
+    os.mkdir(curr_folder + "/Artifacts")
 
 time.sleep(1)
 testsuite_start_time = datetime.now().strftime("%Y%m%d_%H%M%S")
-artifact_folder_path = curr_folder + f"\\Artifacts\\{testsuite_start_time}_{server_name}\\"
-report_folder_path = curr_folder + f"\\Reports\\{testsuite_start_time}_{server_name}\\"
+artifact_folder_path = curr_folder + f"/Artifacts/{testsuite_start_time}_{server_name}/"
+report_folder_path = curr_folder + f"/Reports/{testsuite_start_time}_{server_name}/"
 os.mkdir(artifact_folder_path)
 os.mkdir(report_folder_path)
 
