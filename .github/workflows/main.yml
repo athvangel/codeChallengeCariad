@@ -25,4 +25,9 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: codeChallengeCariad/
+          path: codeChallengeCariad/Artifacts/*
+
+      - name: Archive reports
+        uses: actions/upload-artifact@v4
+        with:
+          path: codeChallengeCariad/Reports/
