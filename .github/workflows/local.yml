@@ -31,4 +31,5 @@ jobs:
           with:
             path: |
               /home/runner/work/codeChallengeCariad/codeChallengeCariad/Artifacts/
+              sleep(5)
               /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/
