@@ -20,7 +20,7 @@ jobs:
           python -m pip install fastapi
           python -m pip install json2html
           python -m pip install requests
-          touch athanasios.txt
+          python testsuite.py
           
       - name: Archive code coverage results
         uses: actions/upload-artifact@v4
