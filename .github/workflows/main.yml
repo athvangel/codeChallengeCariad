@@ -23,8 +23,8 @@ jobs:
           python testsuite.py
           
       - name: Archive artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/download-artifact@v4
         with:
-          name: dist-without-markdown
-          path: Artifacts/*
-                Reports/*
+          path: |
+            Artifacts/
+            Reports/
