@@ -22,8 +22,9 @@ jobs:
           python -m pip install requests
           python testsuite.py
           
-      - name: Archive code coverage results
+      - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: code-coverage-report
-          path: .
+          name: dist-without-markdown
+          path: Artifacts/
+                Reports/
