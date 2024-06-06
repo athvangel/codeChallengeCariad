@@ -23,7 +23,7 @@ jobs:
             
         - name: Run local server
           run: |
-            nohup fastapi dev local_server.py &
+            (fastapi dev local_server.py)&
             sleep(5)
             python testsuite.py local
           
