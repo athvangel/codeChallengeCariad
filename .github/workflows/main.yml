@@ -32,4 +32,4 @@ jobs:
       - name: Archive reports
         uses: actions/upload-artifact@v4
         with:
-          path: /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/*
+          path: /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/
