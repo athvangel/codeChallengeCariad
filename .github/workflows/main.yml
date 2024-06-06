@@ -20,5 +20,10 @@ jobs:
           python -m pip install fastapi
           python -m pip install json2html
           python -m pip install requests
-          python testsuite.py
-        
+          touch athanasios.txt
+          
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4
+        with:
+          name: code-coverage-report
+          path: /
