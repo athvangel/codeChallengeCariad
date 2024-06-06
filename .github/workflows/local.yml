@@ -6,9 +6,6 @@ on:
 jobs:
   run-local-server:
       runs-on: ubuntu-latest
-      concurrency:
-        group: local
-        cancel-in-progress: true
       steps:
         - name: Checkout Code
           uses: actions/checkout@v4
@@ -25,34 +22,13 @@ jobs:
             python -m pip install requests
             
         - name: Run local server
-          run: fastapi dev local_server.py
-
-  run-local:
-    runs-on: ubuntu-latest
-    concurrency:
-      group: local
-      cancel-in-progress: true
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v4
-  
-      - name: Setup python
-        uses: actions/setup-python@v4
-        with:
-          python-version: '3.12'
-      
-      - name: Install dependencies 
-        run: |
-          python -m pip install fastapi
-          python -m pip install json2html
-          python -m pip install requests
-      
-      - name: Run TESTSUITE AND TESTCASES on local
-        run: python testsuite.py local
+          run: |
+            nohup fastapi dev local_server.py &
+            python testsuite.py local
           
-      - name: Archive artifacts
-        uses: actions/upload-artifact@v4
-        with:
-          path: |
-            /home/runner/work/codeChallengeCariad/codeChallengeCariad/Artifacts/
-            /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/
+        - name: Archive artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            path: |
+              /home/runner/work/codeChallengeCariad/codeChallengeCariad/Artifacts/
+              /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/
