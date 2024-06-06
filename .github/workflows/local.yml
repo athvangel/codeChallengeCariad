@@ -23,7 +23,7 @@ jobs:
             
         - name: Run local server
           run: |
-            nohup (fastapi dev local_server.py)&
+            nohup fastapi dev local_server.py &
             sleep(5)
             python testsuite.py local
           
@@ -32,5 +32,4 @@ jobs:
           with:
             path: |
               /home/runner/work/codeChallengeCariad/codeChallengeCariad/Artifacts/
-              sleep(5)
               /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/
