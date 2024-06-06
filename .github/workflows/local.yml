@@ -23,7 +23,8 @@ jobs:
             
         - name: Run local server
           run: |
-            nohup fastapi dev local_server.py &
+            nohup (fastapi dev local_server.py)&
+            sleep(5)
             python testsuite.py local
           
         - name: Archive artifacts
