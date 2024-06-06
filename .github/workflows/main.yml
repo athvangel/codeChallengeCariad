@@ -25,6 +25,4 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: |
-            /home/runner/work/codeChallengeCariad/codeChallengeCariad\Reports\*
-            /home/runner/work/codeChallengeCariad/codeChallengeCariad\Artifacts\*
+          path: codeChallengeCariad/*
