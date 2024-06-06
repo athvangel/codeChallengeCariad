@@ -16,7 +16,7 @@ jobs:
           python-version: '3.12'
       
       - name: Run script
-        run:
+        run: |
           python -m pip install fastapi
           python -m pip install json2html
           python -m pip install requests
