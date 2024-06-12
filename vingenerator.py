@@ -7,9 +7,11 @@ from datetime import datetime
 # Define the character pool
 chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
 
+
 def generate_random_string(length):
     """Generates a random string of the specified length."""
     return ''.join(random.sample(chars, length))
+
 
 def generate_vins(count, folder_path):
     json_log     = create_jsonlog(folder_path)
