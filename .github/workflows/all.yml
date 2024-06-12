@@ -25,12 +25,9 @@ jobs:
       - name: Archive artifacts
         uses: actions/upload-artifact@v4
         with:
-          path: ./codeChallengeCariad/Artifacts/*
-
-      - name: Archive reports
-        uses: actions/upload-artifact@v4
-        with:
-          path: ./codeChallengeCariad/Reports/
+          path: |
+              /home/runner/work/codeChallengeCariad/codeChallengeCariad/Artifacts/
+              /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/
 
   
   run-local-server:
