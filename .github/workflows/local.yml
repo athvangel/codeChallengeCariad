@@ -24,7 +24,9 @@ jobs:
         - uses: actions/checkout@v4
         - uses: JarvusInnovations/background-action@v1
         - name: Run local server in bg and testsuite
-          run: fastapi dev local_server.py& python testsuite.py local
+          run: fastapi dev local_server.py &
+          
+          wait-on: python testsuite.py local
           
         - name: Archive artifacts
           uses: actions/upload-artifact@v4
