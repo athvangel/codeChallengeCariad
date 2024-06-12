@@ -28,7 +28,7 @@ jobs:
             run: fastapi dev local_server.py &
             tail: true
             wait-on:
-              Application startup complete.
+              http://127.0.0.1:8000
         - name: Run testsuite
           run: python testsuite.py local
           
