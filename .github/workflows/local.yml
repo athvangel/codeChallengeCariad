@@ -22,11 +22,13 @@ jobs:
             python -m pip install requests
 
         - uses: actions/checkout@v4
-        - uses: JarvusInnovations/background-action@v1
-        - name: Run local server in bg and testsuite
+        - uses: JarvusInnovations/background-action@v1.0.7
+        - name: Run local server
           run: fastapi dev local_server.py &
-          
-          wait-on: python testsuite.py local
+          wait-on: http://127.0.0.1:8000
+          tail: true
+        - name: Run testsuite
+          run: python testsuite.py local
           
         - name: Archive artifacts
           uses: actions/upload-artifact@v4
