@@ -20,6 +20,7 @@ jobs:
             python -m pip install fastapi
             python -m pip install json2html
             python -m pip install requests
+            python -m pip install uvicorn
 
         - name: Run local server
           uses: JarvusInnovations/background-action@v1.0.7
