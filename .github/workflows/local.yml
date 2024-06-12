@@ -27,9 +27,9 @@ jobs:
           with:
             run: fastapi dev local_server.py &
             wait-on: |
-              http://127.0.0.1:54138
-              http://127.0.0.1:54139
-              http://127.0.0.1:54149
+              127.0.0.1:54138
+              127.0.0.1:54139
+              127.0.0.1:54149
             tail: true
         - name: Run testsuite
           run: python testsuite.py local
