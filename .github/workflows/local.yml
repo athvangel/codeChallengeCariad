@@ -26,7 +26,10 @@ jobs:
           uses: JarvusInnovations/background-action@v1.0.7
           with:
             run: fastapi dev local_server.py &
-            wait-on: http://127.0.0.1:8000
+            wait-on: |
+              http://127.0.0.1:54138
+              http://127.0.0.1:54139
+              http://127.0.0.1:54149
             tail: true
         - name: Run testsuite
           run: python testsuite.py local
