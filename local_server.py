@@ -23,6 +23,9 @@ class Vehicle(BaseModel):
 
 app = FastAPI()
 
+@app.get("/")
+async def root():
+    return {"message": "Hello, I'm serving!"}
 
 @app.get("/vehicle/findByStatus")
 async def findByStatusVehicle(stati: Status):
