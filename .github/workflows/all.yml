@@ -1,0 +1,68 @@
+name: Run testsuite cariad/local
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-cariad:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.12'
+      
+      - name: Run script
+        run: |
+          python -m pip install fastapi
+          python -m pip install json2html
+          python -m pip install requests
+          python testsuite.py
+          
+      - name: Archive artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./codeChallengeCariad/Artifacts/*
+
+      - name: Archive reports
+        uses: actions/upload-artifact@v4
+        with:
+          path: ./codeChallengeCariad/Reports/
+
+  
+  run-local-server:
+      runs-on: ubuntu-latest
+      steps:
+        - name: Checkout Code
+          uses: actions/checkout@v4
+  
+        - name: Setup python
+          uses: actions/setup-python@v4
+          with:
+            python-version: '3.12'
+  
+        - name: Install dependencies 
+          run: |
+            python -m pip install fastapi
+            python -m pip install json2html
+            python -m pip install requests
+            python -m pip install uvicorn
+        - name: Run local server
+          uses: JarvusInnovations/background-action@v1.0.7
+          with:
+            run: fastapi dev local_server.py &
+            tail: true
+            wait-on:
+              http://127.0.0.1:8000
+        - name: Run testsuite
+          run: python testsuite.py local
+          
+        - name: Archive artifacts
+          uses: actions/upload-artifact@v4
+          with:
+            path: |
+              /home/runner/work/codeChallengeCariad/codeChallengeCariad/Artifacts/
+              /home/runner/work/codeChallengeCariad/codeChallengeCariad/Reports/
